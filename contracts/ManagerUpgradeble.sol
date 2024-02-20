@@ -154,7 +154,7 @@ contract ManagerUpgradeble is Initializable, UUPSUpgradeable, OwnableUpgradeable
     /// @param poolId The ID of the newly created pool.
     event ProjectPoolCreeated(bytes32 projectId, uint256 poolId);
 
-    event ProjectRegistered(bytes32);
+    event ProjectRegistered(bytes32 indexed profileId);
 
 
     // /**
@@ -338,10 +338,7 @@ contract ManagerUpgradeble is Initializable, UUPSUpgradeable, OwnableUpgradeable
         pojectSupply[profileId].description = _description;
         projectExecutor[profileId] = _recipient;
 
-        console.log("Profile ID (part 1):", uint256(profileId >> 128));
-        console.log("Profile ID (part 2):", uint256(profileId));
-
-        emit ProjectRegistered(profileId);
+        // emit ProjectRegistered(profileId);
 
         return profileId;
     }
