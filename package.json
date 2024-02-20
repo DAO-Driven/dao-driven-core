@@ -1,29 +1,22 @@
 {
-  "name": "oxdeals",
+  "name": "dao-driven",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "hardhat": "^2.20.1"
+    "@openzeppelin/contracts": "^5.0.1",
+    "hardhat": "^2.19.3"
   },
   "dependencies": {
-    "@nomicfoundation/hardhat-ethers": "^3.0.0",
-    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
-    "@nomicfoundation/hardhat-verify": "^2.0.0",
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "@nomiclabs/hardhat-waffle": "^2.0.6",
-    "@openzeppelin/contracts": "^5.0.1",
     "@openzeppelin/contracts-upgradeable": "^5.0.1",
-    "@openzeppelin/hardhat-upgrades": "^3.0.3",
+    "@types/sinon-chai": "^3.2.3",
+    "chai": "^4.3.10",
     "colors": "^1.4.0",
-    "dotenv": "^16.4.2",
-    "ethereum-waffle": "^4.0.10",
-    "solady": "^0.0.168"
+    "dotenv": "^16.3.1",
+    "ethereum-waffle": "^3.0.0",
+    "ethers": "^5.0.0",
+    "solady": "^0.0.163"
   }
 }
