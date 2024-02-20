@@ -154,6 +154,8 @@ contract ManagerUpgradeble is Initializable, UUPSUpgradeable, OwnableUpgradeable
     /// @param poolId The ID of the newly created pool.
     event ProjectPoolCreeated(bytes32 projectId, uint256 poolId);
 
+    event ProjectRegistered(bytes32);
+
 
     // /**
     //  * @notice Constructor to create a new instance of the contract.
@@ -183,28 +185,28 @@ contract ManagerUpgradeble is Initializable, UUPSUpgradeable, OwnableUpgradeable
     // }
 
     function initialize(
-        // address _alloAddress, 
-        // address _strategy, 
-        // address _strategyFactory, 
-        // address _hatsContractAddress, 
-        // uint256 _managerHatID,
-        // address _initialOwner
+        address _alloAddress, 
+        address _strategy, 
+        address _strategyFactory, 
+        address _hatsContractAddress, 
+        uint256 _managerHatID,
+        address _initialOwner
     ) public initializer {
         require(!initialized, "Contract instance has already been initialized");
         initialized = true;
 
-        // __Ownable_init(_initialOwner);
+        __Ownable_init(_initialOwner);
         __ReentrancyGuard_init();
 
-        // allo = IAllo(_alloAddress);
-        // strategy = _strategy;
-        // strategyFactory = IStrategyFactory(_strategyFactory);
-        // hatsContractAddress = _hatsContractAddress;
-        // hatsContract = IHats(_hatsContractAddress);
-        // managerHatID = _managerHatID;
-        // address registryAddress = address(allo.getRegistry());
-        // registry = IRegistry(registryAddress);
-        // thresholdPercentage = 70; // Default value, adjust as needed
+        allo = IAllo(_alloAddress);
+        strategy = _strategy;
+        strategyFactory = IStrategyFactory(_strategyFactory);
+        hatsContractAddress = _hatsContractAddress;
+        hatsContract = IHats(_hatsContractAddress);
+        managerHatID = _managerHatID;
+        address registryAddress = address(allo.getRegistry());
+        registry = IRegistry(registryAddress);
+        thresholdPercentage = 70; // Default value, adjust as needed
     }
 
 
@@ -335,6 +337,11 @@ contract ManagerUpgradeble is Initializable, UUPSUpgradeable, OwnableUpgradeable
         pojectSupply[profileId].name = _name;
         pojectSupply[profileId].description = _description;
         projectExecutor[profileId] = _recipient;
+
+        console.log("Profile ID (part 1):", uint256(profileId >> 128));
+        console.log("Profile ID (part 2):", uint256(profileId));
+
+        emit ProjectRegistered(profileId);
 
         return profileId;
     }
