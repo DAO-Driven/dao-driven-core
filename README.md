@@ -1,5 +1,7 @@
 **Dao Driven on Allo-V2**
 
+[Platform page](https://dao-driven.github.io/ui-dao-driven/)
+
 Welcome to Decentralized GrantStream, an innovative platform in the Web3 space, designed to bridge the gap between developers and investors. Leveraging the power of Arbitrum, Allo-V2 by GitCoin, and Hats protocols, our platform offers a transparent, democratic process for project funding and management.
 
 Let's explore a very primitive scenario illustrating how this platform could be utilized:
